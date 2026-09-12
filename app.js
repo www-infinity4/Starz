@@ -207,7 +207,7 @@
     player = new YT.Player("player", {
       width:"100%", height:"100%", playerVars:{playsinline:1,controls:0,disablekb:1,enablejsapi:1,origin:location.origin,widget_referrer:location.href},
       events:{
-        onReady:() => { playerReady=true; tick(); },
+        onReady:() => { playerReady=true; player.unMute(); player.setVolume(100); tick(); },
         onStateChange:event => {
           els.playPause.textContent = event.data === YT.PlayerState.PLAYING ? "Pause" : "Play";
         },
